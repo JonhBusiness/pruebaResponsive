@@ -609,35 +609,3 @@
         box-shadow: 0 8px 32px 0 rgba(232, 232, 235, 0.897);
     }
 </style>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const dialogTargets = document.querySelectorAll('[data-dialog-target]');
-        const dialogBackdrops = document.querySelectorAll('[data-dialog-backdrop]');
-
-        dialogTargets.forEach((target) => {
-            target.addEventListener('click', () => {
-                const dialogId = target.getAttribute('data-dialog-target');
-                const dialog = document.querySelector(`[data-dialog="${dialogId}"]`);
-                const backdrop = document.querySelector(`[data-dialog-backdrop="${dialogId}"]`);
-
-                if (dialog && backdrop) {
-                    backdrop.classList.remove('opacity-0', 'pointer-events-none');
-                    dialog.classList.remove('opacity-0');
-                }
-            });
-        });
-
-        dialogBackdrops.forEach((backdrop) => {
-            backdrop.addEventListener('click', (event) => {
-                if (event.target.getAttribute('data-dialog-backdrop-close') === 'true') {
-                    backdrop.classList.add('opacity-0', 'pointer-events-none');
-                    const dialogId = backdrop.getAttribute('data-dialog-backdrop');
-                    const dialog = document.querySelector(`[data-dialog="${dialogId}"]`);
-                    if (dialog) {
-                        dialog.classList.add('opacity-0');
-                    }
-                }
-            });
-        });
-    });
-</script>
