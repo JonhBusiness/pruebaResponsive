@@ -1,0 +1,682 @@
+<!-- libros.html -->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Libros - Biblioteca</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body>
+        <nav class="bg-gray-900 border-gray-200 d">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="mr-2 h-6 w-6"
+                    >
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                    </svg>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Biblioteca</span>
+                </a>
+                <button
+                    data-collapse-toggle="navbar-default"
+                    type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                    aria-controls="navbar-default"
+                    aria-expanded="false"
+                >
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul
+                        class="bg-gray-900 font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-900"
+                    >
+                        <li>
+                            <a
+                                href="libros.html"
+                                class="block py-2 px-3 text-white rounded hover:bg-blue-900 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                                aria-current="page"
+                                >Libros</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="autores.html"
+                                class="block py-2 px-3 text-white rounded hover:bg-blue-900 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                                >Autores</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mx-auto px-4 md:px-6 py-12">
+            <h2 class="mb-6 text-3xl font-bold tracking-tight">Buscar Libros</h2>
+            <form class="mb-8 flex items-center gap-4">
+                <input
+                    class="flex h-10 w-full rounded-md border-input text-sm ring-offset-background disabled:opacity-50 flex-1 rounded-l-md border-0 bg-white py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300"
+                    type="search"
+                    placeholder="Titulo del Libro..."
+                />
+                <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md ring-offset-background transition-colors disabled:opacity-50 h-10 rounded-r-md bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+                    type="submit"
+                >
+                    Buscar
+                </button>
+            </form>
+            <br />
+            <hr />
+            <div class="grid md:grid-cols-[240px_1fr] gap-8">
+                <div class="space-y-6">
+                    <div>
+                        <h2 class="text-lg font-semibold">Filtros</h2>
+                        <div>
+                            <div class="border-b">
+                                <div class="hs-dropdown relative grid">
+                                    <button
+                                        id="hs-dropdown-with-icons"
+                                        type="button"
+                                        class="hs-dropdown-toggle py-3 px-4 flex justify-between gap-x-32 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                    >
+                                        Actions
+                                        <svg
+                                            class="size-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </button>
+                                    <div
+                                        class="hs-dropdown-menu opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 mt-2 divide-y divide-gray-200"
+                                        aria-labelledby="hs-dropdown-with-icons"
+                                    >
+                                        <div class="py-2">
+                                            <a
+                                                id="most-downloads"
+                                                class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                href="#"
+                                            >
+                                                <svg
+                                                    class="flex-shrink-0 size-4"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                >
+                                                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                                                    <path d="M12 12v9" />
+                                                    <path d="m8 17 4 4 4-4" />
+                                                </svg>
+                                                Most Downloads
+                                            </a>
+                                        </div>
+                                        <div class="py-2">
+                                            <a
+                                                id="by-title"
+                                                class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                href="#"
+                                            >
+                                                <svg
+                                                    class="flex-shrink-0 size-4"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                >
+                                                    <path
+                                                        d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM10 18v-6l6 3-6 3z"
+                                                    />
+                                                </svg>
+                                                Title
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="border-b">
+                            <div class="hs-dropdown relative grid">
+                                <button
+                                    id="hs-dropdown-with-icons"
+                                    type="button"
+                                    class="hs-dropdown-toggle2 py-3 px-4 flex justify-between gap-x-32 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                >
+                                    Idiomas
+                                    <svg
+                                        class="size-4"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="hs-dropdown-menu2 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 mt-2 divide-y divide-gray-200"
+                                    aria-labelledby="hs-dropdown-with-icons"
+                                >
+                                    <div class="py-2">
+                                        <ul>
+                                            <li>
+                                                <label><input type="radio" name="idioma" class="mr-2" /> en</label>
+                                            </li>
+                                            <li>
+                                                <label><input type="radio" name="idioma" class="mr-2" /> es</label>
+                                            </li>
+                                            <li>
+                                                <label><input type="radio" name="idioma" class="mr-2" /> tl</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div data-orientation="vertical">
+                        <div data-state="closed" data-orientation="vertical" class="border-b">
+                            <h3 data-orientation="vertical" data-state="closed" class="flex">
+                                <button
+                                    type="button"
+                                    aria-controls="radix-:R2pelafnnja:"
+                                    aria-expanded="false"
+                                    data-state="closed"
+                                    data-orientation="vertical"
+                                    id="radix-:Rpelafnnja:"
+                                    class="flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 text-base"
+                                    data-radix-collection-item=""
+                                >
+                                    Idiomas
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="h-4 w-4 shrink-0 transition-transform duration-200"
+                                    >
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div
+                                data-state="closed"
+                                id="radix-:R2pelafnnja:"
+                                hidden=""
+                                role="region"
+                                aria-labelledby="radix-:Rpelafnnja:"
+                                data-orientation="vertical"
+                                class="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+                            >
+                                <ul>
+                                    <li>
+                                        <label><input type="radio" name="idioma" class="mr-2" /> en</label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="idioma" class="mr-2" /> es</label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="idioma" class="mr-2" /> tl</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div>
+                        <h2 class="text-lg font-semibold">Ordenar por</h2>
+                        <button
+                            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full"
+                            type="button"
+                            id="radix-:Raelafnnja:"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            data-state="closed"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-4 h-4 mr-2"
+                            >
+                                <path d="m21 16-4 4-4-4"></path>
+                                <path d="M17 20V4"></path>
+                                <path d="m3 8 4-4 4 4"></path>
+                                <path d="M7 4v16"></path>
+                            </svg>
+                            Relevancia
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold">Resultados de búsqueda</h2>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Mostrando 1-12 de 120 resultados</p>
+                    </div>
+                     <!-- Card -->
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <div class="block card-block relative flex flex-col h-64 overflow-hidden text-gray-700 transition-opacity bg-white shadow-md cursor-pointer w-96 rounded-xl bg-clip-border hover:opacity-90"
+                            data-dialog-target="book-dialog">
+                            <img src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg" alt="Book cover"
+                                width="300" height="400" class="w-full" />
+                        </div>
+
+                        <div class="p-4 pointer-events-none fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-black bg-opacity-60 opacity-0 backdrop-blur-sm transition-opacity duration-300" data-dialog-backdrop="book-dialog" data-dialog-backdrop-close="true">
+                            <div class="relative m-4 max-w-[75%] rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl" role="dialog" data-dialog="book-dialog">
+                               <div class="m-2 bg-white rounded-lg shadow-sm overflow-hidden grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6 ">
+                    <div class="block card-block grid gap-4 md:gap-8">
+                        <img
+                            src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg"
+                            alt="Book cover"
+                            width="300"
+                            height="400"
+                            class="w-full"
+                        />
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900">Título: <a href="#">Cien años de soledad</a></h3>
+                        <p class="mt-2 text-gray-600">Autores: Gabriel García Márquez</p>
+                        <p class="mt-2 text-gray-600 line-clamp-2">Lenguajes: en</p>
+                        <p class="mt-2 text-gray-600 line-clamp-2">Descargas: 123</p>
+                    </div>
+                    <button
+                        class="bg-blue-100 items-center justify-center whitespace-nowrap rounded-md font-bold text-blue-400 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full md:w-auto"
+                    >
+                        Guardar en BD
+                    </button>
+                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <div class="card bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="block card-image">
+                                <img
+                                    src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg"
+                                    alt="Book cover"
+                                    width="300"
+                                    height="400"
+                                    class="w-full"
+                                />
+                            </div>
+                            <div class="p-4 card-description">
+                                <h3 class="text-lg font-semibold text-gray-900">Titulo:<a href="#">Cien años de soledad</a></h3>
+
+                                <p class="mt-2 text-gray-600">Autores:Gabriel García Márquez</p>
+                                <p class="mt-2 text-gray-600 line-clamp-2">Lenguajes:en</p>
+                                <p class="mt-2 text-gray-600 line-clamp-2">Descargas:123</p>
+                            </div>
+                        </div>
+                        <div class="card bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="block card-image">
+                                <img
+                                    src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg"
+                                    alt="Book cover"
+                                    width="300"
+                                    height="400"
+                                    class="w-full"
+                                />
+                            </div>
+                            <div class="p-4 card-description">
+                                <h3 class="text-lg font-semibold text-gray-900">Titulo:<a href="#">Cien años de soledad</a></h3>
+
+                                <p class="mt-2 text-gray-600">Autores:Gabriel García Márquez</p>
+                                <p class="mt-2 text-gray-600 line-clamp-2">Lenguajes:en</p>
+                                <p class="mt-2 text-gray-600 line-clamp-2">Descargas:123</p>
+                            </div>
+                        </div>
+                        <div class="card bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="block card-image">
+                                <img
+                                    src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg"
+                                    alt="Book cover"
+                                    width="300"
+                                    height="400"
+                                    class="w-full"
+                                />
+                            </div>
+                            <div class="p-4 card-description">
+                                <h3 class="text-lg font-semibold text-gray-900">Titulo:<a href="#">Cien años de soledad</a></h3>
+
+                                <p class="mt-2 text-gray-600">Autores:Gabriel García Márquez</p>
+                                <p class="mt-2 text-gray-600 line-clamp-2">Lenguajes:en</p>
+                                <p class="mt-2 text-gray-600 line-clamp-2">Descargas:123</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- <main class="container mx-auto px-4 py-12 md:px-6 lg:py-16">
+        <div class="grid gap-12 lg:grid-cols-2">
+            <div>
+                <div>
+                    <h2 class="mb-6 text-3xl font-bold tracking-tight">Buscar libros</h2>
+                    <div class="mb-8 flex items-center gap-4">
+                        <input
+                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1"
+                            placeholder="Título del libro" type="text" />
+                        <button
+                            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                            Buscar
+                        </button>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold tracking-tight">Libros</h2>
+                    <div class="grid gap-8">
+                        <div class="flex items-start gap-6">
+                            <img src="/placeholder.svg" width="150" height="200" alt="Portada del libro"
+                                class="rounded-lg object-cover" style="aspect-ratio: 150 / 200; object-fit: cover" />
+                            <div>
+                                <h3 class="mb-2 text-xl font-bold">El Quijote</h3>
+                                <p class="mb-2 text-gray-500">Miguel de Cervantes</p>
+                                <p class="mb-2">Español</p>
+                                <p class="mb-4">
+                                    El Quijote es una novela escrita por el español Miguel de Cervantes Saavedra.
+                                    Publicada su primera parte con
+                                    el título de El ingenioso hidalgo don Quijote de la Mancha a comienzos de 1605.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <img src="/placeholder.svg" width="150" height="200" alt="Portada del libro"
+                                class="rounded-lg object-cover" style="aspect-ratio: 150 / 200; object-fit: cover" />
+                            <div>
+                                <h3 class="mb-2 text-xl font-bold">Cien años de soledad</h3>
+                                <p class="mb-2 text-gray-500">Gabriel García Márquez</p>
+                                <p class="mb-2">Español</p>
+                                <p class="mb-4">
+                                    Cien años de soledad es una novela del escritor colombiano Gabriel García Márquez,
+                                    publicada en 1967. Es
+                                    considerada una de las obras más importantes de la literatura hispanoamericana.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main> -->
+    </body>
+</html>
+<style>
+    .card {
+        height: 254px;
+        width: 190px;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        border-radius: 16px;
+        box-shadow: 0 0 20px 8px #d0d0d0;
+        overflow: hidden;
+    }
+
+    /*Image*/
+    .card-image {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    /*Description */
+    .card-description {
+        display: flex;
+        position: absolute;
+        gap: 0.5em;
+        flex-direction: column;
+        /* background-color: #f5f5f5; */
+        color: #212121;
+        height: 70%;
+        bottom: -90%; /* Initially hidden */
+        border-radius: 16px;
+        transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+        padding: 1rem;
+        background: rgba(211, 213, 218, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    /* Hover states */
+    .card:hover .card-description {
+        bottom: 0; /* Move up to be visible */
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('[data-radix-collection-item]');
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', function () {
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const controls = button.getAttribute('aria-controls');
+                console.log(controls);
+                const content = document.getElementById(controls);
+
+                // Toggle aria-expanded attribute
+                button.setAttribute('aria-expanded', !isExpanded);
+                button.setAttribute('data-state', isExpanded ? 'closed' : 'open');
+
+                // Toggle content visibility
+                if (isExpanded) {
+                    content.setAttribute('data-state', 'closed');
+                    content.hidden = true;
+                } else {
+                    content.setAttribute('data-state', 'open');
+                    content.hidden = false;
+                }
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const button = document.querySelector('[data-collapse-toggle="navbar-default"]');
+        const menu = document.getElementById('navbar-default');
+
+        button.addEventListener('click', function () {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', !isExpanded);
+            menu.classList.toggle('hidden');
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownToggle = document.querySelector('.hs-dropdown-toggle');
+        const dropdownMenu = document.querySelector('.hs-dropdown-menu');
+        const dropdownIcon = dropdownToggle.querySelector('svg');
+
+        dropdownToggle.addEventListener('click', function () {
+            const isOpen = dropdownMenu.classList.contains('hs-dropdown-open:opacity-100');
+            console.log(isOpen);
+            if (isOpen) {
+                dropdownMenu.classList.remove('hs-dropdown-open:opacity-100');
+                dropdownMenu.classList.add('opacity-0');
+                dropdownMenu.classList.add('hidden');
+                dropdownIcon.classList.remove('rotate-180');
+            } else {
+                dropdownMenu.classList.remove('opacity-0');
+                dropdownMenu.classList.remove('hidden');
+                dropdownMenu.classList.add('hs-dropdown-open:opacity-100');
+                dropdownIcon.classList.add('rotate-180');
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownToggle = document.querySelector('.hs-dropdown-toggle2');
+        const dropdownMenu = document.querySelector('.hs-dropdown-menu2');
+        const dropdownIcon = dropdownToggle.querySelector('svg');
+
+        dropdownToggle.addEventListener('click', function () {
+            const isOpen = dropdownMenu.classList.contains('hs-dropdown-open:opacity-100');
+            console.log(isOpen);
+            if (isOpen) {
+                dropdownMenu.classList.remove('hs-dropdown-open:opacity-100');
+                dropdownMenu.classList.add('opacity-0');
+                dropdownMenu.classList.add('hidden');
+                dropdownIcon.classList.remove('rotate-180');
+            } else {
+                dropdownMenu.classList.remove('opacity-0');
+                dropdownMenu.classList.remove('hidden');
+                dropdownMenu.classList.add('hs-dropdown-open:opacity-100');
+                dropdownIcon.classList.add('rotate-180');
+            }
+        });
+    });
+</script>
+<!-- <style>
+    .card {
+        width: 100%;
+        height: 100%;
+        background: white;
+        border-radius: 10px;
+        transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .shadow {
+        box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    }
+</style> -->
+<style>
+    /* .card {
+        width: 190px;
+        height: 254px;
+        background: white;
+        border-radius: 10px;
+        transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    } */
+
+    /* .shadow {
+        box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    } */
+</style>
+<style>
+    .card-block {
+        display: block;
+        width: 300px;
+        /* Ancho inicial del contenedor */
+        height: 400px;
+        /* Altura inicial del contenedor */
+        overflow: hidden;
+        /* Oculta el desbordamiento para que la imagen no sobresalga */
+        /* transition: width 0.3s ease, height 0.3s ease; Transición suave de tamaño */
+        transition: width 0.5s ease, height 0.5s ease;
+        /* Transición más lenta de transformación */
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(3.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .card-block img {
+        width: 100%;
+        /* Ancho del 100% del contenedor padre */
+        height: 100%;
+        /* Altura del 100% del contenedor padre */
+        object-fit: fill;
+        /* Ajuste de objeto para cubrir */
+        transition: transform 0.5s ease;
+        /* Transición suave de transformación */
+    }
+
+    .card-block:hover img {
+        transform: scale(0.9);
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    .card-block:active {
+        transform: scale(0.9) rotateZ(1.7deg);
+        box-shadow: 0 8px 32px 0 rgba(232, 232, 235, 0.897);
+    }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dialogTargets = document.querySelectorAll('[data-dialog-target]');
+    const dialogBackdrops = document.querySelectorAll('[data-dialog-backdrop]');
+
+    dialogTargets.forEach(target => {
+        target.addEventListener('click', () => {
+            const dialogId = target.getAttribute('data-dialog-target');
+            const dialog = document.querySelector(`[data-dialog="${dialogId}"]`);
+            const backdrop = document.querySelector(`[data-dialog-backdrop="${dialogId}"]`);
+
+            if (dialog && backdrop) {
+                backdrop.classList.remove('opacity-0', 'pointer-events-none');
+                dialog.classList.remove('opacity-0');
+            }
+        });
+    });
+
+    dialogBackdrops.forEach(backdrop => {
+        backdrop.addEventListener('click', (event) => {
+            if (event.target.getAttribute('data-dialog-backdrop-close') === 'true') {
+                backdrop.classList.add('opacity-0', 'pointer-events-none');
+                const dialogId = backdrop.getAttribute('data-dialog-backdrop');
+                const dialog = document.querySelector(`[data-dialog="${dialogId}"]`);
+                if (dialog) {
+                    dialog.classList.add('opacity-0');
+                }
+            }
+        });
+    });
+});
+
+</script>
